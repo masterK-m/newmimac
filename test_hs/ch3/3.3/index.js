@@ -14,9 +14,12 @@ module.exports = {
   odd : odd,
   even : even
 }
-
+//==>
+exports.odd = odd;
+exports.even = even;
 
 */
+
 
 function checkStringOddOrEven(str) {
   if (str.length % 2) { // 홀수면
