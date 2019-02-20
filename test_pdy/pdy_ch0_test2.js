@@ -1,4 +1,4 @@
-var calc_module = require("./calc_module");
+var calc_module = require("./ch0_calc_module");
 console.log(calc_module.add(1,3));
 /* npm install nconf --save  명령어로 nconf 모듈 설치*/
 var nconf = require("nconf");
