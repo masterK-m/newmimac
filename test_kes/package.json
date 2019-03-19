@@ -1,16 +1,17 @@
 {
-  "name": "test_kes",
-  "version": "1.0.0",
-  "description": "",
+  "name": "npmtest",
+  "version": "0.0.1",
+  "description": "hello package.json",
   "main": "test.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "kes",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
     "readline-sync": "^1.4.9"
-  }
+  },
+  "devDependencies": {}
 }
