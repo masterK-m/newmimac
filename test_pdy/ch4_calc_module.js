@@ -7,7 +7,7 @@ var Calc = function(){
         console.log("stop 이벤트 호출"); 
     });
 };
-
+/*util은 객체가 손쉽게 객체가 상속받는것을 도와준다*/
 util.inherits(Calc,eventEmitter);
 
 Calc.prototype.add = function(a,b){
