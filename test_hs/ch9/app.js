@@ -1,19 +1,22 @@
 const express = require('express');
-const cookieParser = require('cookie-parser'); //미들웨어
+const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
 require('dotenv').config();
 
+const pageRouter = require('./routes/page');
+const {
+    sequelize
+} = require('./models');
+
 const app = express();
+sequelize.sync();
 
-app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 app.set('port', process.env.PORT || 8001);
-
-const indexRouter = require('./routes/page');
-// const userRouter = require('./routes/user');
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -28,12 +31,12 @@ app.use(session({
     secret: process.env.COOKIE_SECRET,
     cookie: {
         httpOnly: true,
-        secure: false
-    }
+        secure: false,
+    },
 }));
-
 app.use(flash());
-app.use('/', indexRouter);
+
+app.use('/', pageRouter);
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');
@@ -49,5 +52,5 @@ app.use((err, req, res) => {
 });
 
 app.listen(app.get('port'), () => {
-    console.log(`${app.get('port')}번의 포트 서버 실행 중`);
-})
+    console.log(app.get('port'), '번 포트에서 대기중');
+});
