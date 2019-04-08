@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "nodejsbook",
-    "database": "nodebird",
+    "password": "autoset",
+    "database": "nodebrid",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
