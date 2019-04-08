@@ -1,30 +1,40 @@
 const express = require('express');
+const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
+const { Post, User } = require('../models');
+
 const router = express.Router();
 
-//프로필 페이지
-router.get('/profile', (res, req) => {
-    res.render('profile', {
-        title: '내 정보 - Nodebird ',
-        user: null
-    });
+router.get('/profile', isLoggedIn, (req, res) => {
+  res.render('profile', { title: '내 정보 - NodeBird', user: req.user });
 });
 
-//회원가입 페이지
-router.get('/join', (req, res) => {
-    res.render('join', {
-        title: '회원가입 - NodeBird',
-        user: null,
-        joinError: req.flash('joinError'),
-    });
+router.get('/join', isNotLoggedIn, (req, res) => {
+  res.render('join', {
+    title: '회원가입 - NodeBird',
+    user: req.user,
+    joinError: req.flash('joinError'),
+  });
 });
 
-//메인페이지
 router.get('/', (req, res, next) => {
-    res.render('main', {
+  Post.findAll({
+    include: {
+      model: User,
+      attributes: ['id', 'nick'],
+    },
+    order: [['createdAt', 'DESC']],
+  })
+    .then((posts) => {
+      res.render('main', {
         title: 'NodeBird',
-        twits: [],
-        user: null,
-        loginError: req.flash('loginError')
+        twits: posts,
+        user: req.user,
+        loginError: req.flash('loginError'),
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+      next(error);
     });
 });
 
