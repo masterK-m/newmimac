@@ -1,5 +1,5 @@
 {
-  "name": "npmtest_kes_01",
+  "name": "nodebird_api",
   "version": "0.0.1",
   "description": "hello package.json",
   "main": "test.js",
