@@ -1,0 +1,8 @@
+CREATE TABLE TBL_BOARD (
+    BRDNO int(11) NOT NULL AUTO_INCREMENT,    
+    BRDTITLE varchar(255),                        
+    BRDWRITER varchar(20),                       
+    BRDMEMO   varchar(4000),                      
+    BRDDATE     datetime,                         
+    PRIMARY KEY (BRDNO)
+) ;
