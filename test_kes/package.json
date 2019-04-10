@@ -1,16 +1,22 @@
 {
-  "name": "test_kes",
-  "version": "1.0.0",
-  "description": "",
+  "name": "npmtest_kes_01",
+  "version": "0.0.1",
+  "description": "hello package.json",
   "main": "test.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "kes",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.1",
     "readline-sync": "^1.4.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
