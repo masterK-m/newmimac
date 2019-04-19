@@ -27,6 +27,12 @@
             const onSubmitForm = (e) => {
                 e.preventDefault();
                 if (parseInt(value) === first * second) {
+
+                    //예전 벨류를 가져오기
+                    // setResult((prevResult) =>{
+                    //     return '정답' + value
+                    // });
+
                     setResult('정답' + value);
                     setFirst(Math.ceil(Math.random() * 9));
                     setSecond(Math.ceil(Math.random() * 9));
