@@ -3,4 +3,7 @@ const ReactDom = require('react-dom');
 
 const WordRelay = require('./WordRelay');
 
-ReactDom.render( < WordRelay / > , document.querySelector('#root'));
+const  {hot} = require('react-hot-loader/root');
+
+const Hot = hot(WordRelay);
+ReactDom.render( < Hot / > , document.querySelector('#root'));
