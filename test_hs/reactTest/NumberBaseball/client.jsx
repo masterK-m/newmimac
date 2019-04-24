@@ -6,14 +6,12 @@
 
 
 import React from 'react';
-import ReactDom from 'react-dom';
-import { hot } from 'react-hot-loader';
+import ReactDOM from 'react-dom';
+import { hot } from 'react-hot-loader/root';
 
 import NumberBaseball from './NumberBaseball';
 
 const Hot = hot(NumberBaseball);
 
-ReactDOM.render(<Hot /> , document.querySelector("#root"));
-
-
+ReactDOM.render(<Hot />, document.querySelector('#root'));
 
