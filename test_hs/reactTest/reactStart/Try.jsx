@@ -4,10 +4,10 @@ const { Component } = React;
 class Try extends Component {
     render() {
         return (
-            <li >
-                <div>{this.props.value.fruit}</div>
-                <div>컨텐츠</div>
-            </li>
+           <li>
+                <div>{this.props.tryInfo.Try}</div>
+                <div>{this.props.tryInfo.result}</div>
+           </li>
         );
     }
 }
