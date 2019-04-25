@@ -23,7 +23,7 @@ class ResponseCheck extends Component {
                 this.setState({
                     state : 'now',
                     message : '지금클릭'
-                })
+                });
                 this.startTime =  new Date();
             }, Math.floor(Math.random() * 1000 ) + 2000);
 
@@ -33,13 +33,14 @@ class ResponseCheck extends Component {
                 state : 'waiting',
                 message : '급하다 급해'
             })
+
         } else if (state === 'now') {
             this.endTime = new Date();
             this.setState( (prevState) => {
                 return {
                     state : 'waiting',
                     message : '클릭해서 시작하세요.',
-                    result : [...prevState.result, this.endTime - this.statTime]
+                    result : [...prevState.result, this.endTime - this.startTime]
                 };
             });
         }
